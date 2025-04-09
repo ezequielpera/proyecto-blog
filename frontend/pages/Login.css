@@ -1,0 +1,12 @@
+.login-container {
+  width: 40%;
+  margin: auto !important;
+  height: 100vh;
+  min-width: 420px;
+  max-width: 640px;
+}
+
+.login-container form{
+    width: 100%;
+  }
+
