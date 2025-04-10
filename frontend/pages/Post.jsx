@@ -32,7 +32,7 @@ const PostDetail = () => {
   // Función para borrar la publicación
   const handleDeleteButton = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${id}`, {
+      await axios.delete(`https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // Envía el token de autenticación
         },
@@ -51,7 +51,7 @@ const PostDetail = () => {
     try {
       const updatedData = { title, content }; // Datos actualizados
       const response = await axios.patch(
-        `http://localhost:5000/api/posts/${id}`,
+        `https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`,
         updatedData,
         {
           headers: {
@@ -72,7 +72,7 @@ const PostDetail = () => {
     const fetchPost = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/${id}`
+          `https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`
         );
         setPost(response.data);
       } catch (error) {

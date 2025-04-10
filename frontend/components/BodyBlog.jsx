@@ -13,7 +13,7 @@ const BodyBlog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/posts");
+        const response = await axios.get("https://proyecto-blog-xwmd.onrender.com/api/posts");
         setPosts(response.data);
       } catch (error) {
         console.error("Error al obtener las publicaciones:", error);
