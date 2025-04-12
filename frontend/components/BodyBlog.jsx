@@ -58,7 +58,7 @@ const BodyBlog = () => {
               >
                 {post.image && (
                   <img
-                    src={`http://localhost:5000/${post.image}`}
+                    src={`https://proyecto-blog-xwmd.onrender.com/${post.image}`}
                     alt={post.title}
                     className="mb-3 img-fluid"
                   />

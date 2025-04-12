@@ -13,12 +13,12 @@ const generateToken = (user) => {
 
 const googleCallback = (req, res) => {
   const token = generateToken(req.user);
-  res.redirect(`http://localhost:5173/login?token=${token}`);
+  res.redirect(`https://blog-ezequielpera.netlify.app//login?token=${token}`);
 };
 
 const githubCallback = (req, res) => {
   const token = generateToken(req.user);
-  res.redirect(`http://localhost:5173/login?token=${token}`);
+  res.redirect(`https://blog-ezequielpera.netlify.app/login?token=${token}`);
 };
 
 module.exports = { googleCallback, githubCallback };

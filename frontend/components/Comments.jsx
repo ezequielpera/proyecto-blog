@@ -12,7 +12,7 @@ const Comments = ({ postId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${postId}/comments`);
+        const response = await axios.get(`https://proyecto-blog-xwmd.onrender.com/api/posts/${postId}/comments`);
         setComments(response.data);
       } catch (error) {
         console.error("Error al obtener los comentarios:", error);
@@ -37,7 +37,7 @@ const Comments = ({ postId }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/comments`,
+        `https://proyecto-blog-xwmd.onrender.com/api/posts/${postId}/comments`,
         { content: newComment },
         {
           headers: {

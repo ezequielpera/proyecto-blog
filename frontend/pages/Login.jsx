@@ -45,11 +45,11 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = "https://proyecto-blog-xwmd.onrender.com/api/auth/google";
   };
 
   const handleGitHubLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/github";
+    window.location.href = "https://proyecto-blog-xwmd.onrender.com/api/auth/github";
   };
 
   useEffect(() => {

@@ -106,7 +106,7 @@ const PostDetail = () => {
 
       {post.image && (
         <img
-          src={`http://localhost:5000/${post.image}`}
+          src={`https://proyecto-blog-xwmd.onrender.com/${post.image}`}
           alt={post.title}
           className="img-fluid mb-3"
           style={{ maxWidth: "100%", height: "auto" }}

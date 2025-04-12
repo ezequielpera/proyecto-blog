@@ -51,7 +51,7 @@ const register = async (req, res) => {
     await user.save();
 
     // Enviar correo de verificación
-    const verificationLink = `http://localhost:5000/api/verify-email?token=${user.verificationToken}`;
+    const verificationLink = `https://proyecto-blog-xwmd.onrender.com/api/verify-email?token=${user.verificationToken}`;
 
     const mailOptions = {
       from: '"Proyecto-blog-ezequielpera" <ezequieldila@gmail.com>', // Remitente
