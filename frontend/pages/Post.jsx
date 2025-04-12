@@ -8,6 +8,8 @@ import "./Post.css";
 import { AuthContext } from "../utils/AuthContext";
 
 const PostDetail = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const { id } = useParams(); // Obtener el ID de la publicación desde la URL
   const navigate = useNavigate(); // Para redirigir al usuario
   const [post, setPost] = useState(null); // Estado para almacenar la publicación
@@ -32,7 +34,7 @@ const PostDetail = () => {
   // Función para borrar la publicación
   const handleDeleteButton = async (id) => {
     try {
-      await axios.delete(`https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`, {
+      await axios.delete(`${apiUrl}/api/posts/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // Envía el token de autenticación
         },
@@ -51,7 +53,7 @@ const PostDetail = () => {
     try {
       const updatedData = { title, content }; // Datos actualizados
       const response = await axios.patch(
-        `https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`,
+        `${apiUrl}/api/posts/${id}`,
         updatedData,
         {
           headers: {
@@ -72,7 +74,7 @@ const PostDetail = () => {
     const fetchPost = async () => {
       try {
         const response = await axios.get(
-          `https://proyecto-blog-xwmd.onrender.com/api/posts/${id}`
+          `${apiUrl}/api/posts/${id}`
         );
         setPost(response.data);
       } catch (error) {
@@ -106,7 +108,7 @@ const PostDetail = () => {
 
       {post.image && (
         <img
-          src={`https://proyecto-blog-xwmd.onrender.com/${post.image}`}
+          src={`${apiUrl}/${post.image}`}
           alt={post.title}
           className="img-fluid mb-3"
           style={{ maxWidth: "100%", height: "auto" }}

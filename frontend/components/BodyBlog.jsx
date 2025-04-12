@@ -4,7 +4,10 @@ import { Container, Spinner, Row, Col } from "react-bootstrap";
 import "./BodyBlog.css";
 import { useNavigate } from "react-router-dom";
 
+
 const BodyBlog = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +16,7 @@ const BodyBlog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("https://proyecto-blog-xwmd.onrender.com/api/posts");
+        const response = await axios.get(`${apiUrl}/api/posts`);
         setPosts(response.data);
       } catch (error) {
         console.error("Error al obtener las publicaciones:", error);
@@ -58,7 +61,7 @@ const BodyBlog = () => {
               >
                 {post.image && (
                   <img
-                    src={`https://proyecto-blog-xwmd.onrender.com/${post.image}`}
+                    src={`${apiUrl}/${post.image}`}
                     alt={post.title}
                     className="mb-3 img-fluid"
                   />

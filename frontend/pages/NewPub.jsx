@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 
 const NewPub = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -63,7 +64,7 @@ const NewPub = () => {
 
     try {
       const response = await axios.post(
-        "https://proyecto-blog-xwmd.onrender.com/api/posts",
+        `${apiUrl}/api/posts`,
         formData,
         {
           headers: {
