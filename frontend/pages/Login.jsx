@@ -6,6 +6,8 @@ import { AuthContext } from "../utils/AuthContext";
 import "./Login.css";
 
 const Login = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,7 +26,7 @@ const Login = () => {
     const { email, password } = formData;
 
     try {
-      const response = await fetch("https://proyecto-blog-xwmd.onrender.com/api/login", {
+      const response = await fetch(`${apiUrl}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -45,11 +47,11 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "https://proyecto-blog-xwmd.onrender.com/api/auth/google";
+    window.location.href = `${apiUrl}/api/auth/google`;
   };
 
   const handleGitHubLogin = () => {
-    window.location.href = "https://proyecto-blog-xwmd.onrender.com/api/auth/github";
+    window.location.href = `${apiUrl}/api/auth/github`;
   };
 
   useEffect(() => {
