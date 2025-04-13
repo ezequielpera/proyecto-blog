@@ -32,11 +32,14 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("https://proyecto-blog-xwmd.onrender.com/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, email, password }),
-      });
+      const response = await fetch(
+        "https://proyecto-blog-xwmd.onrender.com/api/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ firstName, lastName, email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -53,67 +56,70 @@ const Signup = () => {
   };
 
   return (
-    <div className="login-container d-flex flex-column justify-content-center align-items-center">
-      <h2 className="mb-4">Regístrate</h2>
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Form.Label className="fs-5">Nombre Completo</Form.Label>
-          <Col>
+    <div className="d-flex">
+      <div className="register-image"/>
+      <div className="login-container d-flex flex-column justify-content-center align-items-center">
+        <h2 className="mb-4">Regístrate</h2>
+        <Form onSubmit={handleSubmit}>
+          <Row>
+            <Form.Label className="fs-5">Nombre Completo</Form.Label>
+            <Col>
+              <Form.Control
+                name="firstName"
+                placeholder="Nombre"
+                onChange={handleChange}
+                value={formData.firstName}
+              />
+            </Col>
+            <Col>
+              <Form.Control
+                name="lastName"
+                placeholder="Apellido"
+                className="mb-3"
+                onChange={handleChange}
+                value={formData.lastName}
+              />
+            </Col>
+          </Row>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label className="fs-5">Correo electrónico</Form.Label>
             <Form.Control
-              name="firstName"
-              placeholder="Nombre"
+              type="email"
+              name="email"
+              placeholder="Ingresa tu email"
               onChange={handleChange}
-              value={formData.firstName}
+              value={formData.email}
             />
-          </Col>
-          <Col>
+            <Form.Text className="text-muted">
+              Nunca compartiremos tus datos con nadie.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label className="fs-5">Contraseña</Form.Label>
             <Form.Control
-              name="lastName"
-              placeholder="Apellido"
-              className="mb-3"
+              type="password"
+              name="password"
+              placeholder="Ingresa tu contraseña"
               onChange={handleChange}
-              value={formData.lastName}
+              value={formData.password}
             />
-          </Col>
-        </Row>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className="fs-5">Correo electrónico</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            placeholder="Ingresa tu email"
-            onChange={handleChange}
-            value={formData.email}
-          />
-          <Form.Text className="text-muted">
-            Nunca compartiremos tus datos con nadie.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label className="fs-5">Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="Ingresa tu contraseña"
-            onChange={handleChange}
-            value={formData.password}
-          />
-        </Form.Group>
-        <Form.Group className="mb-4" controlId="formBasicPasswordRepeat">
-          <Form.Label className="fs-5">Repetir contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            name="repeatPassword"
-            placeholder="Ingresa tu contraseña"
-            onChange={handleChange}
-            value={formData.repeatPassword}
-          />
-        </Form.Group>
-        {error && <div className="alert alert-danger">{error}</div>}
-        <Button variant="dark" type="submit" className="m-auto">
-          Registrarme
-        </Button>
-      </Form>
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="formBasicPasswordRepeat">
+            <Form.Label className="fs-5">Repetir contraseña</Form.Label>
+            <Form.Control
+              type="password"
+              name="repeatPassword"
+              placeholder="Ingresa tu contraseña"
+              onChange={handleChange}
+              value={formData.repeatPassword}
+            />
+          </Form.Group>
+          {error && <div className="alert alert-danger">{error}</div>}
+          <button type="submit" className="login-btn">
+            Registrarme
+          </button>
+        </Form>
+      </div>
     </div>
   );
 };
