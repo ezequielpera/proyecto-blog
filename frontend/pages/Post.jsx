@@ -103,19 +103,20 @@ const PostDetail = () => {
   }
 
   return (
-    <div className="w-100 text-center m-auto p-5 container-md post-content">
+    <div className="w-100 m-auto post-content">
       <h1>{post.title}</h1>
 
       {post.image && (
+        <div className="text-center img-container">
         <img
           src={`${apiUrl}/${post.image}`}
           alt={post.title}
-          className="img-fluid mb-3"
-          style={{ maxWidth: "100%", height: "auto" }}
+          className="mb-3"
         />
+        </div>
       )}
 
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div dangerouslySetInnerHTML={{ __html: post.content }} className="text-container"/>
 
       <small className="d-block">
         Publicado el: {new Date(post.createdAt).toLocaleDateString()} por{" "}
