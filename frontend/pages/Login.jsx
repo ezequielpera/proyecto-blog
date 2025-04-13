@@ -66,6 +66,8 @@ const Login = () => {
   }, [login, navigate]);
 
   return (
+    <div className="d-flex">
+    <div className="login-image"/>
     <div className="login-container d-flex flex-column justify-content-center align-items-center">
       <h2 className="mb-4">Iniciar Sesión</h2>
       <Form onSubmit={handleSubmit}>
@@ -90,20 +92,21 @@ const Login = () => {
           />
         </Form.Group>
         {error && <div className="alert alert-danger">{error}</div>}
-        <Button variant="dark" type="submit" className="m-auto">
+        <button type="submit" className="login-btn">
           Iniciar Sesión
-        </Button>
+        </button>
       </Form>
 
       {/* Botones de OAuth */}
       <div className="mt-4">
-        <Button variant="danger" onClick={handleGoogleLogin} className="me-2">
+        <button onClick={handleGoogleLogin} className="me-2 auth-button google-btn">
           Iniciar sesión con Google
-        </Button>
-        <Button variant="dark" onClick={handleGitHubLogin}>
+        </button>
+        <button onClick={handleGitHubLogin} className="auth-button github-btn">
           Iniciar sesión con GitHub
-        </Button>
+        </button>
       </div>
+    </div>
     </div>
   );
 };

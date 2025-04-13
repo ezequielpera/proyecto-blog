@@ -32,7 +32,11 @@ const BodyBlog = () => {
   }, []);
 
   if (loading) {
-    return <Spinner animation="border" variant="primary" className="m-auto" />;
+    return (
+    <div className="w-100 text-center mt-5">
+    <Spinner animation="border" variant="primary" />
+    </div>)
+    ;
   }
 
   if (error) {
