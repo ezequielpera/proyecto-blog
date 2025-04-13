@@ -3,6 +3,8 @@ import axios from "axios";
 import { ListGroup, Form, Button, Alert } from "react-bootstrap";
 
 const Comments = ({ postId }) => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [comments, setComments] = useState([]); 
   const [newComment, setNewComment] = useState(""); 
   const [commentError, setCommentError] = useState(""); 
@@ -12,7 +14,7 @@ const Comments = ({ postId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`https://proyecto-blog-xwmd.onrender.com/api/posts/${postId}/comments`);
+        const response = await axios.get(`${apiUrl}/api/posts/${postId}/comments`);
         setComments(response.data);
       } catch (error) {
         console.error("Error al obtener los comentarios:", error);
@@ -37,7 +39,7 @@ const Comments = ({ postId }) => {
 
     try {
       const response = await axios.post(
-        `https://proyecto-blog-xwmd.onrender.com/api/posts/${postId}/comments`,
+        `${apiUrl}/api/posts/${postId}/comments`,
         { content: newComment },
         {
           headers: {
