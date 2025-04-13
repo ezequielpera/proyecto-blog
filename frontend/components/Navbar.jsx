@@ -38,7 +38,7 @@ function Nav() {
         <div className="button-container pt-2">
           {token ? (
             <>
-              <Button variant="dark" className="me-2">
+              <Button variant="dark" className="me-2 rounded-5">
                 Hola {user && user.firstName}
               </Button>
               <Button variant="outline-dark" onClick={handleShow}>

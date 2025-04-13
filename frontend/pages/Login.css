@@ -10,3 +10,73 @@
     width: 100%;
   }
 
+  /* Estilo base para ambos botones */
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.76);
+  margin: 8px 0;
+  width: 280px;
+  text-decoration: none;
+  color: rgba(12, 11, 11, 0.664);
+}
+
+.google-btn:hover {
+  background-color: #3367D6;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.671);
+  color: white;
+}
+
+.github-btn:hover {
+  background-color: #1A1E22;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.671);
+  color: white;
+}
+
+/* Iconos */
+.auth-button svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.login-btn{
+  padding: 10px 30px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.671);
+  color: rgba(5, 5, 5, 0.692);
+  transition: all 300ms ease;
+}
+
+.login-btn:hover{
+  background-color: #5051527a;
+}
+
+.login-image {
+  width: 33vw;
+  height: 100vh;
+  background-image: url('/login-illustration.webp');
+  background-size: cover;
+}
+
+.register-image {
+  width: 33vw;
+  height: 100vh;
+  background-image: url('/register-illustration.webp');
+  background-size: cover;
+}
+
+
+
